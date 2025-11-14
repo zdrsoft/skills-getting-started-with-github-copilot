@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Activities</title>
+  <style>
+    /* minimal layout so the page looks okay without touching JS */
+    body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial; padding: 20px; color:#102a43; }
+    #main { max-width:900px; margin:0 auto; }
+    #signup { margin-top:18px; padding:12px; border:1px solid #e3e8ef; border-radius:8px; background:#fff; }
+    label { display:block; margin-top:8px; font-size:0.95rem; color:#334e68; }
+    input, select, button { margin-top:6px; padding:8px; font-size:0.95rem; border-radius:6px; border:1px solid #cbd7e6; }
+    button { background:#1f6feb; color:white; border:none; cursor:pointer; }
+    button:disabled { opacity:0.6; cursor:default; }
+    #message { margin-top:10px; padding:8px; border-radius:6px; display:none; }
+    #message.success { background:#e6f4ea; color:#0b6b2f; border:1px solid #cfead0; display:block; }
+    #message.error { background:#fff1f0; color:#8a1f11; border:1px solid #f3c1c0; display:block; }
+  </style>
+</head>
+<body>
+  <div id="main">
+    <h2>Available activities</h2>
+    <div id="activities-list">Loading activities...</div>
+
+    <section id="signup" aria-labelledby="signup-heading">
+      <h3 id="signup-heading">Sign up for an activity</h3>
+      <form id="signup-form" novalidate>
+        <label for="activity">Activity</label>
+        <select id="activity" name="activity">
+          <option value="" disabled selected>Select an activity</option>
+          <!-- options populated by JS -->
+        </select>
+
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" required />
+
+        <label for="username">Username</label>
+        <input id="username" name="username" type="text" required />
+
+        <button id="signup-button" type="submit">Sign up</button>
+      </form>
+
+      <div id="message" role="status" aria-live="polite"></div>
+    </section>
+  </div>
+
+  <!-- load app script -->
+  <script src="/static/app.js" defer></script>
+</body>
+</html>
